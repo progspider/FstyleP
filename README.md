@@ -1,6 +1,8 @@
 # Fooocus_extend
 Extender for Fooocus
 
+
+<a href=\"https://colab.research.google.com/github/shaitanzx/Fooocus_extend/blob/main/Fooocus_extender.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"</a>
 <table>
 <thead>
 <tr>
@@ -10,7 +12,7 @@ Extender for Fooocus
 </thead>
 <tbody>
 <tr>
-<td><a href=\"https://colab.research.google.com/github/shaitanzx/Fooocus_extend/blob/main/Fooocus_extender.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"</a></td>
+<td></td>
 <td>Fooocus Official</td>
 </tr>
 </tbody>
