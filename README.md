@@ -3,6 +3,7 @@ Extender for Fooocus
 
 <a href="https://colab.research.google.com/github/shaitanzx/Fooocus_extend/blob/main/Fooocus_extend.ipynb" rel="nofollow"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg"></a>
 
+![image](https://github.com/shaitanzx/Fooocus_extend/assets/162459965/c7abd6ae-3b41-436a-ae0c-7fc723590ce8)
 
 Startup order
 1. Select a profile
