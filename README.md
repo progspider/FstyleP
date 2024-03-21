@@ -18,7 +18,7 @@ Startup order
 9. Add_Loras - enable Lora downloads
 10. URLs_Loras - adding links to Lora from the site civitai.com. If you need to download several Loras, links to them can be specified separated by commas (,) without spaces.
 11. After all these settings, you can launch the collab for execution.
-12. For apply emmbeding, in the prompt field use a record like (embedding:file_name:1.1)
+12. For apply embedding, in the prompt field use a record like (embedding:file_name:1.1)
 
 
 Порядок запуска
@@ -33,5 +33,5 @@ Startup order
 9.	Add_Loras - включение загрузок Lora
 10.	 URLs_Loras - добавление ссылок на Lora с сайта civitai.com. При необходимости загрузки нескольких Lora, ссылки на них можно указывать через запятую (,)  без пробелов.
 11.	После этих всех настроек можно запускать коллаб на выполнение.
-12.	Для применения emmbeding, в поле промпта используйте запись типа (embedding:file_name:1.1)
+12.	Для применения embedding, в поле промпта используйте запись типа (embedding:file_name:1.1)
 
