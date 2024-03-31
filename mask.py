@@ -330,11 +330,7 @@ with shared.gradio_root:
 
 
                 load_file_from_url(url=url_down,model_dir=model_dir,file_name=filename)
-              return 
-
-
-
-
+              return
 
             with gr.Row(elem_classes='downloader_row'):
                  with gr.Accordion('Model Dowloader', open=False):
@@ -349,7 +345,7 @@ with shared.gradio_root:
                         with gr.Row():
                             download_start = gr.Button(value="Start Download") 
                         download_start.click(downloader, inputs=[civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd],outputs=civitai_api_key)
-              
+
 # download end
 
 
