@@ -267,11 +267,9 @@ with shared.gradio_root:
             ip_tab.select(lambda: 'ip', outputs=current_tab, queue=False, _js=down_js, show_progress=False)
             desc_tab.select(lambda: 'desc', outputs=current_tab, queue=False, _js=down_js, show_progress=False)
 
-
             def downloader(civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd):
               if not civitai_api_key:
                 return
-              
               model_dir="/content/Fooocus/models/checkpoints/"
               urls_download = downloader_checkpoint
               download_files (model_dir,urls_download,civitai_api_key)
@@ -281,10 +279,7 @@ with shared.gradio_root:
               model_dir="/content/Fooocus/models/embeddings/"
               urls_download = downloader_embd
               download_files (model_dir,urls_download,civitai_api_key)
-              
-
               return civitai_api_key
-
             def download_files (model_dir,urls_download,civitai_api_key):
               if not urls_download:
                 return
@@ -297,38 +292,27 @@ with shared.gradio_root:
                   'Authorization': f'Bearer {civitai_api_key}',
                   'User-Agent': USER_AGENT,
                   }
-
-                # Disable automatic redirect handling
                 class NoRedirection(urllib.request.HTTPErrorProcessor):
                     def http_response(self, request, response):
                         return response
                     https_response = http_response
-
                 request = urllib.request.Request(url_down, headers=headers)
                 opener = urllib.request.build_opener(NoRedirection)
                 response = opener.open(request)
-
                 if response.status in [301, 302, 303, 307, 308]:
                     redirect_url = response.getheader('Location')
-
-                    # Extract filename from the redirect URL
                     parsed_url = urlparse(redirect_url)
                     query_params = parse_qs(parsed_url.query)
                     content_disposition = query_params.get('response-content-disposition', [None])[0]
-
                     if content_disposition:
                         filename = unquote(content_disposition.split('filename=')[1].strip('"'))
                     else:
                         raise Exception('Unable to determine filename')
-
                     response = urllib.request.urlopen(redirect_url)
                 elif response.status == 404:
                     raise Exception('File not found')
                 else:
                     raise Exception('No redirect found, something went wrong')
-
-
-
                 load_file_from_url(url=url_down,model_dir=model_dir,file_name=filename)
               return
 
@@ -345,9 +329,7 @@ with shared.gradio_root:
                         with gr.Row():
                             download_start = gr.Button(value="Start Download") 
                         download_start.click(downloader, inputs=[civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd],outputs=civitai_api_key)
-
 # download end
-
 
         with gr.Column(scale=1, visible=modules.config.default_advanced_checkbox) as advanced_column:
             with gr.Tab(label='Setting'):
