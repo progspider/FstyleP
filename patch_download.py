@@ -85,7 +85,7 @@ from modules.model_loader import load_file_from_url\n"""],
 
 def search_and_path_download():
     isOk_download = 0
-    pathesLen = len(PATH_OBJ_DATA_DOWLOAD_MODEL)
+    pathesLen = len(PATH_OBJ_DATA_DOWNLOAD_MODEL)
     patchedFileName = os.path.join(DIR_FOOOCUS, "webui_patched.py")
 
     with open(PATH_TO_WEBUI, 'r+', encoding='utf-8') as f:
@@ -96,7 +96,7 @@ def search_and_path_download():
             print(f"File '{PATH_TO_WEBUI}' is empty!\n")
             return
 
-        if PATH_OBJ_DATA_PROMPT_TRANSLATE[0][1] in lines:
+        if PATH_OBJ_DATA_DOWNLOAD_MODEL[0][1] in lines:
             return "Already"
 
         pathed = 0
