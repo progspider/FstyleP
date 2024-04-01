@@ -118,7 +118,7 @@ def search_and_path_download():
 
         patchedFile.close()
 
-        pathResult = isOk == pathesLen
+        pathResult = isOk_download == pathesLen
 
         if not pathResult:
             # Remove tmp file
