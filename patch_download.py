@@ -1,6 +1,5 @@
 # Script for patching file webui.py for Fooocus
-# Author: AlekPet
-# Github: https://github.com/AlekPet/Fooocus_Extensions_AlekPet
+# Author: AlekPet & Shahmatist/RMDA
 
 import os
 import datetime
@@ -9,7 +8,7 @@ import shutil
 DIR_FOOOCUS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Fooocus")
 PATH_TO_WEBUI = os.path.join(DIR_FOOOCUS, "webui.py")
 
-PATH_OBJ_DATA_PROMPT_TRANSLATE = [
+PATH_OBJ_DATA_DOWNLOAD_MODEL = [
     ["import launch\n","""import requests
 import re
 import urllib.request\n"""],
@@ -85,8 +84,8 @@ from modules.model_loader import load_file_from_url\n"""],
 
 
 def search_and_path():
-    isOk = 0
-    pathesLen = len(PATH_OBJ_DATA_PROMPT_TRANSLATE)
+    isOk_download = 0
+    pathesLen = len(PATH_OBJ_DATA_DOWLOAD_MODEL)
     patchedFileName = os.path.join(DIR_FOOOCUS, "webui_patched.py")
 
     with open(PATH_TO_WEBUI, 'r+', encoding='utf-8') as f:
@@ -137,25 +136,21 @@ def search_and_path():
     return "Ok" if pathResult else "Error"
 
 
-def start_path():
+def start_path_download():
     print("""=== Script for patching file webui.py for Fooocus ===
-> Extension: 'Prompt Translate'
-> Author: AlekPet
-> Github: https://github.com/AlekPet/Fooocus_Extensions_AlekPet
-
-> Reset original webui.py:
-https://github.com/AlekPet/Fooocus_Extensions_AlekPet/?tab=readme-ov-file#reset-last-original-webuipy
+> Extension: 'Download Model'
+> Author: Shahmatist/RMDA
 === ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ===""")
 
-    isOk = search_and_path()
-    if isOk == "Ok":
+    isOk_dowload = search_and_path_download()
+    if isOk_download == "Ok":
         print("\nPatched successfully!")
 
-    elif isOk == "Already":
+    elif isOk_download == "Already":
         print("\nPath already appied!")
 
     else:
         print("\nError path data incorrect!")
 
 
-start_path()
+start_path_dowload()
