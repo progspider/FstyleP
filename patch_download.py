@@ -105,7 +105,7 @@ def search_and_path_download():
         patchedFile = open(patchedFileName, 'w+', encoding='utf-8')
 
         for line in lines:
-            for linepath in PATH_OBJ_DATA_PROMPT_TRANSLATE:
+            for linepath in PATH_OBJ_DATA_DOWNLOAD_MODEL:
                 if line.startswith(linepath[0]):
                     line = line + linepath[1]
                     isOk = isOk + 1
