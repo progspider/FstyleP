@@ -153,4 +153,4 @@ def start_path_download():
         print("\nError path data incorrect!")
 
 
-start_path_dowload()
+start_path_download()
