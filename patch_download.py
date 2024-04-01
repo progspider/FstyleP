@@ -83,8 +83,8 @@ from modules.model_loader import load_file_from_url\n"""],
 ]
 
 
-def search_and_path_download():
-    isOk_download = 0
+def search_and_path():
+    isOk = 0
     pathesLen = len(PATH_OBJ_DATA_DOWNLOAD_MODEL)
     patchedFileName = os.path.join(DIR_FOOOCUS, "webui_patched.py")
 
@@ -108,17 +108,17 @@ def search_and_path_download():
             for linepath in PATH_OBJ_DATA_DOWNLOAD_MODEL:
                 if line.startswith(linepath[0]):
                     line = line + linepath[1]
-                    isOk_download = isOk_download + 1
+                    isOk = isOk + 1
 
                     pathed += pathSteps
-                    print('Patches applied to file {0} of {1} [{2:1.1f}%)]'.format(isOk_download, pathesLen, pathed), end='\r',
+                    print('Patches applied to file {0} of {1} [{2:1.1f}%)]'.format(isOk, pathesLen, pathed), end='\r',
                           flush=True)
 
             patchedFile.write(line)
 
         patchedFile.close()
 
-        pathResult = isOk_download == pathesLen
+        pathResult = isOk == pathesLen
 
         if not pathResult:
             # Remove tmp file
@@ -136,21 +136,21 @@ def search_and_path_download():
     return "Ok" if pathResult else "Error"
 
 
-def start_path_download():
+def start_path():
     print("""=== Script for patching file webui.py for Fooocus ===
 > Extension: 'Download Model'
 > Author: Shahmatist/RMDA
 === ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ===""")
 
-    isOk_download = search_and_path_download()
-    if isOk_download == "Ok":
+    isOk = search_and_path()
+    if isOk == "Ok":
         print("\nPatched successfully!")
 
-    elif isOk_download == "Already":
+    elif isOk == "Already":
         print("\nPath already appied!")
 
     else:
         print("\nError path data incorrect!")
 
 
-start_path_download()
+start_path()
