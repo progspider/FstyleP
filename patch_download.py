@@ -108,7 +108,7 @@ def search_and_path_download():
             for linepath in PATH_OBJ_DATA_DOWNLOAD_MODEL:
                 if line.startswith(linepath[0]):
                     line = line + linepath[1]
-                    isOk = isOk + 1
+                    isOk_download = isOk_download + 1
 
                     pathed += pathSteps
                     print('Patches applied to file {0} of {1} [{2:1.1f}%)]'.format(isOk, pathesLen, pathed), end='\r',
