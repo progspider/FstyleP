@@ -9,8 +9,8 @@ DIR_FOOOCUS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Fooocus"
 PATH_TO_WEBUI = os.path.join(DIR_FOOOCUS, "webui.py")
 
 PATH_OBJ_DATA_DOWNLOAD_MODEL = [
-    ["import launch\n","""import requests
-import re
+    ["import copy\n","import requests\n"],
+    ["import launch\n","""import re
 import urllib.request\n"""],
 
 
