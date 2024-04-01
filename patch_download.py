@@ -10,33 +10,34 @@ DIR_FOOOCUS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Fooocus"
 PATH_TO_WEBUI = os.path.join(DIR_FOOOCUS, "webui.py")
 
 PATH_OBJ_DATA_PROMPT_TRANSLATE = [
-    ["import launch\n","import requests\nimport re\nimport urllib.request\n"],
+    ["import launch\n","""import requestsimport re
+    import urllib.request\n"""],
 
 
-    ["from modules.auth import auth_enabled, check_auth\n",
-     "from urllib.parse import urlparse, parse_qs, unquote
-    from modules.model_loader import load_file_from_url\n"],   
+    ["from modules.auth import auth_enabled, check_auth\n","""
+    from urllib.parse import urlparse, parse_qs, unquote
+    from modules.model_loader import load_file_from_url\n"""],   
     [
         "            desc_tab.select(lambda: 'desc', outputs=current_tab, queue=False, _js=down_js, show_progress=False)\n",
-        "            def downloader(civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd):
+        """            def downloader(civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd):
               if not civitai_api_key:
                 return
-              model_dir="/content/Fooocus/models/checkpoints/"
+              model_dir='/content/Fooocus/models/checkpoints/'
               urls_download = downloader_checkpoint
               download_files (model_dir,urls_download,civitai_api_key)
-              model_dir="/content/Fooocus/models/loras/"
+              model_dir='/content/Fooocus/models/loras/'
               urls_download = downloader_loras
               download_files (model_dir,urls_download,civitai_api_key)
-              model_dir="/content/Fooocus/models/embeddings/"
+              model_dir='/content/Fooocus/models/embeddings/'
               urls_download = downloader_embd
               download_files (model_dir,urls_download,civitai_api_key)
               return civitai_api_key
             def download_files (model_dir,urls_download,civitai_api_key):
               if not urls_download:
                 return
-              URLs_paths = urls_download.split(",")
+              URLs_paths = urls_download.split(',')
               for main_url in URLs_paths:
-                URL=main_url.split("?")
+                URL=main_url.split('?')
                 url_down = URL[0] + '?token='+civitai_api_key
                 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
                 headers = {
@@ -78,8 +79,8 @@ PATH_OBJ_DATA_PROMPT_TRANSLATE = [
                         with gr.Row():
                             downloader_embd=gr.Textbox(label='Embedding Link', show_label=True, interactive=True)
                         with gr.Row():
-                            download_start = gr.Button(value="Start Download")
-                        download_start.click(downloader, inputs=[civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd],outputs=civitai_api_key)\n"],
+                            download_start = gr.Button(value='Start Download')
+                        download_start.click(downloader, inputs=[civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd],outputs=civitai_api_key)\n"""],
 ]
 
 
