@@ -10,13 +10,13 @@ DIR_FOOOCUS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Fooocus"
 PATH_TO_WEBUI = os.path.join(DIR_FOOOCUS, "webui.py")
 
 PATH_OBJ_DATA_PROMPT_TRANSLATE = [
-    ["import launch\n","""import requestsimport re
-    import urllib.request\n"""],
+    ["import launch\n","""import requests
+import re
+import urllib.request\n"""],
 
 
-    ["from modules.auth import auth_enabled, check_auth\n","""
-    from urllib.parse import urlparse, parse_qs, unquote
-    from modules.model_loader import load_file_from_url\n"""],   
+    ["from modules.auth import auth_enabled, check_auth\n","""from urllib.parse import urlparse, parse_qs, unquote
+from modules.model_loader import load_file_from_url\n"""],   
     [
         "            desc_tab.select(lambda: 'desc', outputs=current_tab, queue=False, _js=down_js, show_progress=False)\n",
         """            def downloader(civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd):
