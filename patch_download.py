@@ -111,7 +111,7 @@ def search_and_path_download():
                     isOk_download = isOk_download + 1
 
                     pathed += pathSteps
-                    print('Patches applied to file {0} of {1} [{2:1.1f}%)]'.format(isOk, pathesLen, pathed), end='\r',
+                    print('Patches applied to file {0} of {1} [{2:1.1f}%)]'.format(isOk_download, pathesLen, pathed), end='\r',
                           flush=True)
 
             patchedFile.write(line)
