@@ -83,7 +83,7 @@ from modules.model_loader import load_file_from_url\n"""],
 ]
 
 
-def search_and_path():
+def search_and_path_download():
     isOk_download = 0
     pathesLen = len(PATH_OBJ_DATA_DOWLOAD_MODEL)
     patchedFileName = os.path.join(DIR_FOOOCUS, "webui_patched.py")
@@ -142,7 +142,7 @@ def start_path_download():
 > Author: Shahmatist/RMDA
 === ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ===""")
 
-    isOk_dowload = search_and_path_download()
+    isOk_download = search_and_path_download()
     if isOk_download == "Ok":
         print("\nPatched successfully!")
 
