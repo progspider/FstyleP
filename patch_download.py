@@ -10,81 +10,78 @@ DIR_FOOOCUS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Fooocus"
 PATH_TO_WEBUI = os.path.join(DIR_FOOOCUS, "webui.py")
 
 PATH_OBJ_DATA_PROMPT_TRANSLATE = [
+    ["import launch\n","import requests
+    import re
+    import urllib.request\n"],
+
+
     ["from modules.auth import auth_enabled, check_auth\n",
-     "from modules.module_translate import translate, GoogleTranslator\n"],
-    ["def get_task(*args):\n", """    # Prompt translate AlekPet
-    argsList = list(args)
-    toT = argsList.pop() 
-    srT = argsList.pop() 
-    trans_automate = argsList.pop() 
-    trans_enable = argsList.pop() 
-
-    if trans_enable:      
-        if trans_automate:
-            positive, negative = translate(argsList[2], argsList[3], srT, toT)            
-            argsList[2] = positive
-            argsList[3] = negative
-
-    args = tuple(argsList)
-    # end -Prompt translate AlekPet\n"""],
+     "from urllib.parse import urlparse, parse_qs, unquote
+    from modules.model_loader import load_file_from_url\n"],   
     [
-        "            desc_tab.select(lambda: 'desc', outputs=current_tab, queue=False, _js=down_js, show_progress=False)\n", """
+        "            desc_tab.select(lambda: 'desc', outputs=current_tab, queue=False, _js=down_js, show_progress=False)\n",
+        "            def downloader(civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd):
+              if not civitai_api_key:
+                return
+              model_dir="/content/Fooocus/models/checkpoints/"
+              urls_download = downloader_checkpoint
+              download_files (model_dir,urls_download,civitai_api_key)
+              model_dir="/content/Fooocus/models/loras/"
+              urls_download = downloader_loras
+              download_files (model_dir,urls_download,civitai_api_key)
+              model_dir="/content/Fooocus/models/embeddings/"
+              urls_download = downloader_embd
+              download_files (model_dir,urls_download,civitai_api_key)
+              return civitai_api_key
+            def download_files (model_dir,urls_download,civitai_api_key):
+              if not urls_download:
+                return
+              URLs_paths = urls_download.split(",")
+              for main_url in URLs_paths:
+                URL=main_url.split("?")
+                url_down = URL[0] + '?token='+civitai_api_key
+                USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+                headers = {
+                  'Authorization': f'Bearer {civitai_api_key}',
+                  'User-Agent': USER_AGENT,
+                  }
+                class NoRedirection(urllib.request.HTTPErrorProcessor):
+                    def http_response(self, request, response):
+                        return response
+                    https_response = http_response
+                request = urllib.request.Request(url_down, headers=headers)
+                opener = urllib.request.build_opener(NoRedirection)
+                response = opener.open(request)
+                if response.status in [301, 302, 303, 307, 308]:
+                    redirect_url = response.getheader('Location')
+                    parsed_url = urlparse(redirect_url)
+                    query_params = parse_qs(parsed_url.query)
+                    content_disposition = query_params.get('response-content-disposition', [None])[0]
+                    if content_disposition:
+                        filename = unquote(content_disposition.split('filename=')[1].strip('"'))
+                    else:
+                        raise Exception('Unable to determine filename')
+                    response = urllib.request.urlopen(redirect_url)
+                elif response.status == 404:
+                    raise Exception('File not found')
+                else:
+                    raise Exception('No redirect found, something went wrong')
+                load_file_from_url(url=url_down,model_dir=model_dir,file_name=filename)
+              return
 
-            # [start] Prompt trasnlate AlekPet
-            with gr.Row(elem_classes='translate_row'):
-                    langs_sup = GoogleTranslator().get_supported_languages(as_dict=True)
-                    langs_sup = list(langs_sup.values())
-
-                    def change_lang(src, dest):
-                            if src != 'auto' and src != dest:
-                                return [src, dest]
-                            return ['en','auto']
-
-                    def show_viewtrans(checkbox):
-                        return {viewstrans: gr.update(visible=checkbox)} 
-
-                    with gr.Accordion('Prompt Translate', open=False):
+            with gr.Row(elem_classes='downloader_row'):
+                 with gr.Accordion('Model Dowloader', open=False):
                         with gr.Row():
-                            translate_enabled = gr.Checkbox(label='Enable translate', value=False, elem_id='translate_enabled_el')
-                            translate_automate = gr.Checkbox(label='Auto translate "Prompt and Negative prompt" before Generate', value=True, interactive=True, elem_id='translate_enabled_el')
-
+                            civitai_api_key=downloader_checkpoint=gr.Textbox(label='Civitai API Key', show_label=True, interactive=True, value='85787ad46c0ac8782754057a18dd757a')
                         with gr.Row():
-                            gtrans = gr.Button(value="Translate")        
-
-                            srcTrans = gr.Dropdown(['auto']+langs_sup, value='auto', label='From', interactive=True)
-                            toTrans = gr.Dropdown(langs_sup, value='en', label='To', interactive=True)
-                            change_src_to = gr.Button(value="🔃")
-
+                            downloader_checkpoint=gr.Textbox(label='Checkpoint Link', show_label=True, interactive=True, value='https://civitai.com/api/download/models/5119?type=Model&format=PickleTensor&size=full&fp=fp16')
                         with gr.Row():
-                            adv_trans = gr.Checkbox(label='See translated prompts after click Generate', value=False)          
-
-                        with gr.Box(visible=False) as viewstrans:
-                            gr.Markdown('Tranlsated prompt & negative prompt')
-                            with gr.Row():
-                                p_tr = gr.Textbox(label='Prompt translate', show_label=False, value='', lines=2, placeholder='Translated text prompt')
-
-                            with gr.Row():            
-                                p_n_tr = gr.Textbox(label='Negative Translate', show_label=False, value='', lines=2, placeholder='Translated negative text prompt')             
-
-            # [end] Prompt trasnlate AlekPet\n"""],
-    ["            .then(fn=lambda: None, _js='refresh_grid_delayed', queue=False, show_progress=False)\n", """
-        # [start] Prompt translate AlekPet
-        def seeTranlateAfterClick(adv_trans, prompt, negative_prompt="", srcTrans="auto", toTrans="en"):
-            if(adv_trans):
-                positive, negative = translate(prompt, negative_prompt, srcTrans, toTrans)
-                return [positive, negative]   
-            return ["", ""]
-
-        gtrans.click(translate, inputs=[prompt, negative_prompt, srcTrans, toTrans], outputs=[prompt, negative_prompt])
-        gtrans.click(translate, inputs=[prompt, negative_prompt, srcTrans, toTrans], outputs=[p_tr, p_n_tr])
-
-        change_src_to.click(change_lang, inputs=[srcTrans,toTrans], outputs=[toTrans,srcTrans])
-        adv_trans.change(show_viewtrans, inputs=adv_trans, outputs=[viewstrans])
-        # [end] Prompt translate AlekPet\n"""],
-    ["        ctrls += ip_ctrls\n", "        ctrls += [translate_enabled, translate_automate, srcTrans, toTrans]\n"],
-    [
-        "            .then(fn=generate_clicked, inputs=currentTask, outputs=[progress_html, progress_window, progress_gallery, gallery]) \\\n",
-        """            .then(fn=seeTranlateAfterClick, inputs=[adv_trans, prompt, negative_prompt, srcTrans, toTrans], outputs=[p_tr, p_n_tr]) \\\n"""]
+                            downloader_loras=gr.Textbox(label='Lora Link', show_label=True, interactive=True)
+                        with gr.Row():
+                            downloader_embd=gr.Textbox(label='Embedding Link', show_label=True, interactive=True)
+                        with gr.Row():
+                            download_start = gr.Button(value="Start Download")
+                        download_start.click(downloader, inputs=[civitai_api_key,downloader_checkpoint,downloader_loras,downloader_embd],outputs=civitai_api_key)\n"],
 ]
 
 
