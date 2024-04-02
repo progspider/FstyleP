@@ -1,6 +1,8 @@
 # Fooocus_extend
 Extender for Fooocus
-(Any borrowing of code without attribution and permission of the author is considered plagiarism and disrespect for the author)
+
+(Any borrowing of code without attribution and permission of the author is considered plagiarism and disrespect for the author).
+
 (Любые заимствования кода без указания авторства и разрешения автора считается плагиатом и неуважением к автору)
 
 
