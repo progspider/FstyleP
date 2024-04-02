@@ -70,9 +70,9 @@ from modules.model_loader import load_file_from_url\n"""],
             with gr.Row(elem_classes='downloader_row'):
                  with gr.Accordion('Model Dowloader', open=False):
                         with gr.Row():
-                            civitai_api_key=downloader_checkpoint=gr.Textbox(label='Civitai API Key', show_label=True, interactive=True, value='85787ad46c0ac8782754057a18dd757a')
+                            civitai_api_key=downloader_checkpoint=gr.Textbox(label='Civitai API Key', show_label=True, interactive=True, value='')
                         with gr.Row():
-                            downloader_checkpoint=gr.Textbox(label='Checkpoint Link', show_label=True, interactive=True, value='https://civitai.com/api/download/models/5119?type=Model&format=PickleTensor&size=full&fp=fp16')
+                            downloader_checkpoint=gr.Textbox(label='Checkpoint Link', show_label=True, interactive=True, value='')
                         with gr.Row():
                             downloader_loras=gr.Textbox(label='Lora Link', show_label=True, interactive=True)
                         with gr.Row():
