@@ -1,5 +1,8 @@
 # Fooocus_extend
 Extender for Fooocus
+(Any borrowing of code without attribution and permission of the author is considered plagiarism and disrespect for the author)
+(Любые заимствования кода без указания авторства и разрешения автора считается плагиатом и неуважением к автору)
+
 
 <a href="https://colab.research.google.com/github/shaitanzx/Fooocus_extend/blob/main/Fooocus_extend.ipynb" rel="nofollow"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg"></a>
 
