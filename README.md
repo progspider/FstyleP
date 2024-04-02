@@ -2,6 +2,8 @@
 Extender for Fooocus
 
 <a href="https://colab.research.google.com/github/shaitanzx/Fooocus_extend/blob/main/Fooocus_extend.ipynb" rel="nofollow"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg"></a>
+
+
 ![image](https://github.com/shaitanzx/Fooocus_extend/assets/162459965/c8fabbdf-c93a-4fbe-83c3-8a320dfe2653)
 ![image](https://github.com/shaitanzx/Fooocus_extend/assets/162459965/538c5054-dab5-4b8d-a3a4-55af11017ece)
 ![image](https://github.com/shaitanzx/Fooocus_extend/assets/162459965/cc30d308-e63c-4c73-b798-6a65875693db)
