@@ -64,6 +64,7 @@ Model Dowloader
 8.	Для применения embedding, в поле промпта используйте запись типа (embedding:file_name:1.1)
 
 Change log
+
 V2 (current version)
 1. Added a Model Downloader to Fooocus webui instead of colab
 
