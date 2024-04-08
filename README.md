@@ -15,7 +15,7 @@ Extender for Fooocus
 ![image](https://github.com/shaitanzx/Fooocus_extend/assets/162459965/92e1bec7-4227-47bc-a3f9-e1274dd3d6e6)
 
 
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VuXzHu4PLsk?si=G_H5-wl4DKH3eevy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 
