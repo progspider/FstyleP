@@ -15,7 +15,7 @@ Extender for Fooocus
 ![image](https://github.com/shaitanzx/Fooocus_extend/assets/162459965/92e1bec7-4227-47bc-a3f9-e1274dd3d6e6)
 
 
-[![Click to play](https://github.com/shaitanzx/Fooocus_extend/assets/162459965/6ef0bbe8-c350-4b38-a966-19df4ca2aa36)](https://www.youtube.com/watch?v=VuXzHu4PLsk?t=35s "Click to play")
+Сlick on the picture below to watch the video
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=VuXzHu4PLsk
 " target="_blank"><img src="http://img.youtube.com/vi/VuXzHu4PLsk/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
