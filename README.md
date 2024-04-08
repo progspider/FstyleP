@@ -16,7 +16,9 @@ Extender for Fooocus
 
 
 [![Click to play](https://github.com/shaitanzx/Fooocus_extend/assets/162459965/6ef0bbe8-c350-4b38-a966-19df4ca2aa36)](https://www.youtube.com/watch?v=VuXzHu4PLsk?t=35s "Click to play")
-
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=VuXzHu4PLsk
+" target="_blank"><img src="http://img.youtube.com/vi/VuXzHu4PLsk/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 Startup order
 1. Select a profile
