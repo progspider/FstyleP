@@ -16,6 +16,8 @@ Extender for Fooocus
 
 
 Сlick on the picture below to watch the video
+
+
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=VuXzHu4PLsk
 " target="_blank"><img src="http://img.youtube.com/vi/VuXzHu4PLsk/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
